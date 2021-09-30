@@ -4,6 +4,12 @@ namespace tarefas {
         private _descricao: string;
         private _estado: TarefaEstado;
 
+        constructor (id: number, descricao: string, estado: TarefaEstado) {
+            this._id = id;
+            this._descricao = descricao;
+            this._estado = estado;
+        }
+
         get id () {
             return this._id;
         }

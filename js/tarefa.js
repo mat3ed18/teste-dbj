@@ -2,7 +2,10 @@
 var tarefas;
 (function (tarefas) {
     var Tarefa = /** @class */ (function () {
-        function Tarefa() {
+        function Tarefa(id, descricao, estado) {
+            this._id = id;
+            this._descricao = descricao;
+            this._estado = estado;
         }
         Object.defineProperty(Tarefa.prototype, "id", {
             get: function () {

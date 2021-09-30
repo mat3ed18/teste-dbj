@@ -2,7 +2,7 @@ namespace tarefas {
     export class Usuario {
         private _id: number; 
         private _nome: string;
-        private _tarefas: Tarefa[];
+        private _tarefas: Tarefa[] = [];
 
         constructor (id: number, nome: string) {
             this._id = id;
@@ -31,6 +31,11 @@ namespace tarefas {
 
         set tarefas (tarefas: Tarefa[]) {
             this._tarefas = tarefas;
+        }
+
+        public adicionarTarefa(tarefa: Tarefa): void {
+            this._tarefas.push(tarefa);
+            document.body.innerHTML += "<br><i>A tarefa foi adicionada com sucesso</i>";
         }
     }
 }

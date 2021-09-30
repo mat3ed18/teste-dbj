@@ -3,6 +3,7 @@ var tarefas;
 (function (tarefas_1) {
     var Usuario = /** @class */ (function () {
         function Usuario(id, nome) {
+            this._tarefas = [];
             this._id = id;
             this._nome = nome;
         }
@@ -36,6 +37,10 @@ var tarefas;
             enumerable: false,
             configurable: true
         });
+        Usuario.prototype.adicionarTarefa = function (tarefa) {
+            this._tarefas.push(tarefa);
+            document.body.innerHTML += "<br><i>A tarefa foi adicionada com sucesso</i>";
+        };
         return Usuario;
     }());
     tarefas_1.Usuario = Usuario;
