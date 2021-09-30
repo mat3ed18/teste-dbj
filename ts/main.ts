@@ -1,3 +1,5 @@
 namespace tarefas {
-    document.write("sfa");
+    const usuario = new Usuario(1, "Renato Silva");
+
+    document.write("nome do usuário: " + usuario.nome);
 }
