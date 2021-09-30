@@ -41,6 +41,20 @@ var tarefas;
             this._tarefas.push(tarefa);
             document.body.innerHTML += "<br><i>A tarefa foi adicionada com sucesso</i>";
         };
+        Usuario.prototype.estadoTarefa = function (idTarefa, estadoTarefa) {
+            for (var i = 0; i < this._tarefas.length; i++) {
+                if (this._tarefas[i].id == idTarefa) {
+                    this._tarefas[i].estado = estadoTarefa;
+                }
+            }
+        };
+        Usuario.prototype.removerTarefa = function (idTarefa) {
+            for (var i = 0; i < this._tarefas.length; i++) {
+                if (this._tarefas[i].id == idTarefa) {
+                    delete this._tarefas[i];
+                }
+            }
+        };
         return Usuario;
     }());
     tarefas_1.Usuario = Usuario;

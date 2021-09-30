@@ -37,5 +37,21 @@ namespace tarefas {
             this._tarefas.push(tarefa);
             document.body.innerHTML += "<br><i>A tarefa foi adicionada com sucesso</i>";
         }
+
+        public estadoTarefa(idTarefa: number, estadoTarefa: TarefaEstado) {
+            for (let i = 0; i < this._tarefas.length; i++) {
+                if (this._tarefas[i].id == idTarefa) {
+                    this._tarefas[i].estado = estadoTarefa;
+                }
+            }
+        }
+
+        public removerTarefa(idTarefa: number) {
+            for (let i = 0; i < this._tarefas.length; i++) {
+                if (this._tarefas[i].id == idTarefa) {
+                    delete this._tarefas[i];
+                }
+            }
+        }
     }
 }

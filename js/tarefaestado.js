@@ -3,8 +3,8 @@ var tarefas;
 (function (tarefas) {
     var TarefaEstado;
     (function (TarefaEstado) {
-        TarefaEstado[TarefaEstado["PENDENTE"] = 1] = "PENDENTE";
-        TarefaEstado[TarefaEstado["EXECUCAO"] = 2] = "EXECUCAO";
-        TarefaEstado[TarefaEstado["FINALIZADA"] = 3] = "FINALIZADA";
+        TarefaEstado["PENDENTE"] = "Pendente";
+        TarefaEstado["EXECUCAO"] = "Em execu\u00E7\u00E3o";
+        TarefaEstado["FINALIZADA"] = "Finalizada";
     })(TarefaEstado = tarefas.TarefaEstado || (tarefas.TarefaEstado = {}));
 })(tarefas || (tarefas = {}));

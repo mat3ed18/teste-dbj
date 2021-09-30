@@ -1,5 +1,5 @@
 namespace tarefas {
     export enum TarefaEstado {
-        PENDENTE = 1, EXECUCAO = 2, FINALIZADA = 3
+        PENDENTE = "Pendente", EXECUCAO = "Em execução", FINALIZADA = "Finalizada"
     }
 }
