@@ -15,7 +15,32 @@ var tarefas;
         document.body.innerHTML += "<br>tarefa: " + tarefa.descricao + " - " + tarefa.estado;
     });
     $(document).on("click", ".addTask", function () {
-        // alert("feito");
+        $(".adicionar_tarefa").modal("show");
+    });
+    $(document).on("click", ".addUser", function () {
+        $(".adicionar_usuario").modal("show");
+    });
+    $(document).on("click", ".adicionar_usuario .btn-outline-success", function () {
+        if (localStorage.getItem("usuarios") != null) {
+            var usuarios = JSON.parse(localStorage.getItem("usuarios"));
+            var random_id = Math.floor(Math.random() * 10000) + 1;
+            usuarios.push(new tarefas.Usuario(random_id, $("#nameUser").val().toString()));
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        }
+        else {
+            var usuarios = [];
+            var random_id = Math.floor(Math.random() * 10000) + 1;
+            usuarios.push(new tarefas.Usuario(random_id, $("#nameUser").val().toString()));
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        }
+        $(".adicionar_usuario").modal("hide");
+        $("#alertMsg").html("O usuário foi cadastrado com sucesso");
+        $("#nameUser").val(null);
+        $(".alert").modal("show");
+    });
+    $(document).on("click", ".adicionar_tarefa .btn-outline-success", function () {
+        $(".adicionar_tarefa").modal("hide");
+        $("#alertMsg").html("A tarefa foi cadastrada com sucesso");
         $(".alert").modal("show");
     });
 })(tarefas || (tarefas = {}));
