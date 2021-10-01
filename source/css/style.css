@@ -2,3 +2,10 @@
     margin: 0%;
     padding: 0%;
 }
+
+#alertMsg {
+    width: 100%;
+    margin-top: 3%;
+    text-align: center;
+    font-weight: 400;
+}

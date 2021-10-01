@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <a class="navbar-brand">Tarefas</a>
             <div class="d-flex">
-                <button class="btn btn-outline-primary">Adicionar Tarefa</button>
+                <button class="btn btn-outline-primary addTask">Adicionar Tarefa</button>
             </div>
         </div>
     </nav>
@@ -48,9 +48,9 @@
 
         </div>
     </div>
-    
-    
-    
+
+
+
     <div class="modal adicionar_usuario" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -59,30 +59,51 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <div>
+                        <div class="mb-3">
+                            <label for="nameUser" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="nameUser" aria-describedby="descNmUser"></textarea>
+                            <div id="descNmUser" class="form-text">Digite o nome do usuário.</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Salvar</button>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-outline-success">Cadastrar</button>
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <div class="modal adicionar_tarefa" tabindex="-1" aria-hidden="true">
+    <div class="modal adicionar_tarefa" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header justify-content-center">
                     <h5 class="modal-title">Adicionar Tarefa</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <div>
+                        <div class="mb-3">
+                            <label for="descTextarea" class="form-label">Descrição</label>
+                            <textarea type="descricao" class="form-control" id="descTextarea" aria-describedby="descHelp"></textarea>
+                            <div id="descHelp" class="form-text">Digite a descrição da tarefa.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="estadoTarefa" class="form-label">Estado</label>
+                            <select class="form-select form-control" id="estadoTarefa" aria-label="Default select example" aria-describedby="descEstado">
+                                <option value="" selected>Selecione um estado</option>
+                                <option value="PENDENTE">PENDENTE</option>
+                                <option value="EM ANDAMENTO">EM ANDAMENTO</option>
+                                <option value="FINALIZADA">FINALIZADA</option>
+                            </select>
+                            <div id="descEstado" class="form-text">Selecione o estado da tarefa.</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Salvar</button>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-outline-success">Adicionar</button>
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
@@ -97,7 +118,23 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <div>
+                        <div class="mb-3">
+                            <label for="descTextarea" class="form-label">Descrição</label>
+                            <textarea type="descricao" class="form-control" id="descTextarea" aria-describedby="descHelp"></textarea>
+                            <div id="descHelp" class="form-text">Digite a descrição da tarefa.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="estadoTarefa" class="form-label">Estado</label>
+                            <select class="form-select form-control" id="estadoTarefa" aria-label="Default select example" aria-describedby="descEstado">
+                                <option value="" selected>Selecione um estado</option>
+                                <option value="PENDENTE">PENDENTE</option>
+                                <option value="EM ANDAMENTO">EM ANDAMENTO</option>
+                                <option value="FINALIZADA">FINALIZADA</option>
+                            </select>
+                            <div id="descEstado" class="form-text">Selecione o estado da tarefa.</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -107,8 +144,22 @@
         </div>
     </div>
 
-    
-    
+    <div class="modal alert" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="alertMsg">A tarefa foi cadastrada com sucesso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <script src="js/tarefaestado.js"></script>
     <script src="js/tarefa.js"></script>
     <script src="js/usuario.js"></script>
