@@ -14,4 +14,5 @@ var tarefas;
     usuario.tarefas.forEach(function (tarefa) {
         document.body.innerHTML += "<br>tarefa: " + tarefa.descricao + " - " + tarefa.estado;
     });
+    $(".adicionar_tarefa").show();
 })(tarefas || (tarefas = {}));

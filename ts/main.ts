@@ -19,6 +19,8 @@ namespace tarefas {
     usuario.tarefas.forEach(tarefa => {
         document.body.innerHTML += "<br>tarefa: " + tarefa.descricao + " - " + tarefa.estado;
     });
+
+    $(".adicionar_tarefa").show();
     
 
 

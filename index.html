@@ -1,24 +1,120 @@
 <html>
-    <head>
-        <title>Teste DBJ</title>
-        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="source/css/style.css">        
-    </head>
-    <body>
+
+<head>
+    <title>Teste DBJ</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="source/css/style.css">
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-1 bg-light">
-                    
-                </div>
-                <div class="col-11">tarefas</div>
+            <a class="navbar-brand">Tarefas</a>
+            <div class="d-flex">
+                <button class="btn btn-outline-primary">Adicionar Tarefa</button>
             </div>
         </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
 
-        <script src="node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="js/tarefaestado.js"></script>
-        <script src="js/tarefa.js"></script>
-        <script src="js/usuario.js"></script>
-        <script src="js/main.js"></script>
-    </body>
+            <div class="card col-4 text-dark bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header font-weight-bold">Tarefa #10</div>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+
+            <div class="card col-4 text-dark bg-success mb-3" style="max-width: 18rem;">
+                <div class="card-header font-weight-bold text-white">Tarefa #11</div>
+                <div class="card-body">
+                    <p class="card-text text-white">Some quick example text to build on the card title and make up the
+                        bulk of the card's content.</p>
+                </div>
+            </div>
+
+            <div class="card col-4 text-dark bg-danger mb-3" style="max-width: 18rem;">
+                <div class="card-header font-weight-bold text-white">Tarefa #12</div>
+                <div class="card-body">
+                    <p class="card-text text-white">Some quick example text to build on the card title and make up the
+                        bulk of the card's content.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    
+    
+    <div class="modal adicionar_usuario" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Adicionar Usuário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal adicionar_tarefa" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Adicionar Tarefa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal ver_tarefa" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ver Tarefa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <script src="js/tarefaestado.js"></script>
+    <script src="js/tarefa.js"></script>
+    <script src="js/usuario.js"></script>
+    <script src="js/main.js"></script>
+
+
+</body>
+
 </html>
