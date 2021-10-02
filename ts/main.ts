@@ -47,25 +47,51 @@ namespace tarefas {
                         switch (usuarios[i]._tarefas[j]._estado) {
                             case "Pendente":
                             default:
-                                html_task += "<div class=\"card col-4 text-dark bg-light mb-3\" style=\"max-width: 18rem;\">";
+                                html_task += "<div class=\"card col-4 text-dark bg-danger mb-3\" style=\"max-width: 18rem;\">";
                             break;
                             case "Em execução":
-                                html_task += "<div class=\"card col-4 text-dark bg-success mb-3\" style=\"max-width: 18rem;\">";
+                                html_task += "<div class=\"card col-4 text-dark bg-light mb-3\" style=\"max-width: 18rem;\">";
                             break;
                             case "Finalizada":
-                                html_task += "<div class=\"card col-4 text-dark bg-danger mb-3\" style=\"max-width: 18rem;\">";
+                                html_task += "<div class=\"card col-4 text-dark bg-success mb-3\" style=\"max-width: 18rem;\">";
                             break;
                         }
 
-                            html_task += "<div class=\"card-header font-weight-bold text-white\">Tarefa #11</div>";
-                            html_task += "<div class=\"card-body\">";
-                                html_task += "<p class=\"card-text text-white\">" + usuarios[i]._tarefas[j]._descricao + "</p>";
-                                html_task += "<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-secondary btnUpdatePending\"><i class=\"bi bi-clock\"></i></a>";
-                                html_task += "<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-primary btnUpdateCurrent\"><i class=\"bi bi-check2\"></i></a>";
-                                html_task += "<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-outline-dark btnUpdateDone\"><i class=\"bi bi-check2-all\"></i></a>";
-                                html_task += "<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-danger btnDeleteTask\"><i class=\"bi bi-trash\"></i></a>";
+                        switch (usuarios[i]._tarefas[j]._estado) {
+                            case "Pendente":
+                                html_task += "<div class=\"card-header font-weight-bold text-white\">Tarefa #" + usuarios[i]._tarefas[j]._id + "</div>";
+                                html_task += "<div class=\"card-body\">";
+                                    html_task += "<p class=\"card-text text-white\">" + usuarios[i]._tarefas[j]._descricao + "</p>";
+                                    html_task += "<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-secondary btnUpdatePending\"><i class=\"bi bi-clock\"></i></a>";
+                                    html_task += "&nbsp<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-primary btnUpdateCurrent\"><i class=\"bi bi-check2\"></i></a>";
+                                    html_task += "&nbsp<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-outline-dark btnUpdateDone\"><i class=\"bi bi-check2-all\"></i></a>";
+                                    html_task += "&nbsp<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-outline-dark btnDeleteTask\"><i class=\"bi bi-trash\"></i></a>";
+                                html_task += "</div>";
                             html_task += "</div>";
-                        html_task += "</div>";
+                            break;
+                            case "Em execução":
+                                html_task += "<div class=\"card-header font-weight-bold\">Tarefa #" + usuarios[i]._tarefas[j]._id + "</div>";
+                                html_task += "<div class=\"card-body\">";
+                                    html_task += "<p class=\"card-text\">" + usuarios[i]._tarefas[j]._descricao + "</p>";
+                                    html_task += "<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-secondary btnUpdatePending\"><i class=\"bi bi-clock\"></i></a>";
+                                    html_task += "&nbsp<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-primary btnUpdateCurrent\"><i class=\"bi bi-check2\"></i></a>";
+                                    html_task += "&nbsp<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-outline-dark btnUpdateDone\"><i class=\"bi bi-check2-all\"></i></a>";
+                                    html_task += "&nbsp<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-danger btnDeleteTask\"><i class=\"bi bi-trash\"></i></a>";
+                                html_task += "</div>";
+                            html_task += "</div>";
+                            break;
+                            case "Finalizada":
+                                html_task += "<div class=\"card-header font-weight-bold text-white\">Tarefa #" + usuarios[i]._tarefas[j]._id + "</div>";
+                                    html_task += "<div class=\"card-body\">";
+                                        html_task += "<p class=\"card-text text-white\">" + usuarios[i]._tarefas[j]._descricao + "</p>";
+                                        html_task += "<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-secondary btnUpdatePending\"><i class=\"bi bi-clock\"></i></a>";
+                                        html_task += "&nbsp<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-primary btnUpdateCurrent\"><i class=\"bi bi-check2\"></i></a>";
+                                        html_task += "&nbsp<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-outline-dark btnUpdateDone\"><i class=\"bi bi-check2-all\"></i></a>";
+                                        html_task += "&nbsp<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-danger btnDeleteTask\"><i class=\"bi bi-trash\"></i></a>";
+                                    html_task += "</div>";
+                                html_task += "</div>";
+                            break;
+                        }
                     }
                 }
             }
@@ -189,7 +215,11 @@ namespace tarefas {
 
             $(".adicionar_tarefa").modal("hide");
             $("#alertMsg").html("A tarefa foi cadastrada com sucesso");
-            $("#nameUser").val(null);
+            
+            $("#descricao").val(null);
+            $("#usuarioTarefa").html("<option value=\"\" selected>Selecione um autor</option>");
+            $("#estadoTarefa").html("<option value=\"\" selected>Selecione um estado</option><option value=\"PENDENTE\">PENDENTE</option><option value=\"EM ANDAMENTO\">EM ANDAMENTO</option><option value=\"FINALIZADA\">FINALIZADA</option>");
+
             $(".alert").modal("show");
             main_tasks();
         } else {
