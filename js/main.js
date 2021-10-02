@@ -1,19 +1,7 @@
 "use strict";
 var tarefas;
 (function (tarefas) {
-    // const usuario = new Usuario(1, "Renato dos Anjos");
-    // document.body.innerHTML += "nome do usuário: " + usuario.nome;
-    // const tarefa1 = new Tarefa(1, "Teste 1", TarefaEstado.PENDENTE);
-    // const tarefa2 = new Tarefa(2, "Teste 2", TarefaEstado.EXECUCAO);
-    // const tarefa3 = new Tarefa(3, "Teste 3", TarefaEstado.FINALIZADA);
-    // usuario.adicionarTarefa(tarefa1);
-    // usuario.adicionarTarefa(tarefa2);
-    // usuario.adicionarTarefa(tarefa3);
-    // usuario.estadoTarefa(1, TarefaEstado.FINALIZADA);
-    // usuario.removerTarefa(2);
-    // usuario.tarefas.forEach(tarefa => {
-    //     document.body.innerHTML += "<br>tarefa: " + tarefa.descricao + " - " + tarefa.estado;
-    // });
+    // botões superiores
     $(document).on("click", ".addTask", function () {
         var usuarios = JSON.parse(localStorage.getItem("usuarios"));
         $("#usuarioTarefa").html("<option value=\"\" selected>Selecione um autor</option>");
@@ -25,6 +13,7 @@ var tarefas;
     $(document).on("click", ".addUser", function () {
         $(".adicionar_usuario").modal("show");
     });
+    // atualizar tarefas
     function main_tasks() {
         var usuarios = JSON.parse(localStorage.getItem("usuarios"));
         var html_task = "";
@@ -36,13 +25,13 @@ var tarefas;
                         switch (usuarios[i]._tarefas[j]._estado) {
                             case "Pendente":
                             default:
-                                html_task += "<div class=\"card col-4 text-dark bg-danger mb-3\" style=\"max-width: 18rem;\">";
+                                html_task += "<div class=\"card text-dark bg-danger mb-3\" style=\"max-width: 18rem;\">";
                                 break;
                             case "Em execução":
-                                html_task += "<div class=\"card col-4 text-dark bg-light mb-3\" style=\"max-width: 18rem;\">";
+                                html_task += "<div class=\"card text-dark bg-light mb-3\" style=\"max-width: 18rem;\">";
                                 break;
                             case "Finalizada":
-                                html_task += "<div class=\"card col-4 text-dark bg-success mb-3\" style=\"max-width: 18rem;\">";
+                                html_task += "<div class=\"card text-dark bg-success mb-3\" style=\"max-width: 18rem;\">";
                                 break;
                         }
                         switch (usuarios[i]._tarefas[j]._estado) {
@@ -55,7 +44,7 @@ var tarefas;
                                 html_task += "&nbsp<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-outline-dark btnUpdateDone\"><i class=\"bi bi-check2-all\"></i></a>";
                                 html_task += "&nbsp<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-outline-dark btnDeleteTask\"><i class=\"bi bi-trash\"></i></a>";
                                 html_task += "</div>";
-                                html_task += "</div>";
+                                html_task += "</div>&nbsp&nbsp&nbsp";
                                 break;
                             case "Em execução":
                                 html_task += "<div class=\"card-header font-weight-bold\">Tarefa #" + usuarios[i]._tarefas[j]._id + "</div>";
@@ -66,7 +55,7 @@ var tarefas;
                                 html_task += "&nbsp<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-outline-dark btnUpdateDone\"><i class=\"bi bi-check2-all\"></i></a>";
                                 html_task += "&nbsp<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-danger btnDeleteTask\"><i class=\"bi bi-trash\"></i></a>";
                                 html_task += "</div>";
-                                html_task += "</div>";
+                                html_task += "</div>&nbsp&nbsp&nbsp";
                                 break;
                             case "Finalizada":
                                 html_task += "<div class=\"card-header font-weight-bold text-white\">Tarefa #" + usuarios[i]._tarefas[j]._id + "</div>";
@@ -77,7 +66,7 @@ var tarefas;
                                 html_task += "&nbsp<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-outline-dark btnUpdateDone\"><i class=\"bi bi-check2-all\"></i></a>";
                                 html_task += "&nbsp<a id-task=\"" + usuarios[i]._tarefas[j]._id + "\" class=\"btn btn-danger btnDeleteTask\"><i class=\"bi bi-trash\"></i></a>";
                                 html_task += "</div>";
-                                html_task += "</div>";
+                                html_task += "</div>&nbsp&nbsp&nbsp";
                                 break;
                         }
                     }
@@ -89,9 +78,11 @@ var tarefas;
             $(".main_tasks").html("Você não tem nenhuma tarefa");
         }
     }
+    // atualizar tarefas na página principal
     $(document).ready(function () {
         main_tasks();
     });
+    // atualizar eventos dos botões das tarefas
     function events_tasks() {
         $(document).on("click", ".card .btnUpdatePending", function () {
             var usuarios = JSON.parse(localStorage.getItem("usuarios"));
@@ -150,7 +141,9 @@ var tarefas;
             main_tasks();
         });
     }
+    // atualizar eventos dos botões das tarefas na página principal
     events_tasks();
+    // adicionar usuários e tarefas
     $(document).on("click", ".adicionar_usuario .btn-outline-success", function () {
         if (localStorage.getItem("usuarios") != null) {
             var usuarios = JSON.parse(localStorage.getItem("usuarios"));
